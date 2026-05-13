@@ -9,11 +9,14 @@ import config
 from bot.vk_handler import handle_message
 
 os.makedirs(os.path.dirname(config.LOG_FILE), exist_ok=True)
+_handlers = [
+    logging.FileHandler(config.LOG_FILE, encoding="utf-8"),
+    logging.StreamHandler(sys.stdout),
+]
 logging.basicConfig(
-    filename=config.LOG_FILE,
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
-    encoding="utf-8",
+    handlers=_handlers,
 )
 logger = logging.getLogger(__name__)
 

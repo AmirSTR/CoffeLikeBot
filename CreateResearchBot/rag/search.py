@@ -15,8 +15,10 @@ def _get_client() -> QdrantClient:
     global _client
     if _client is None:
         if config.QDRANT_URL:
+            logger.info("Qdrant: подключение к облаку %s", config.QDRANT_URL)
             _client = QdrantClient(url=config.QDRANT_URL, api_key=config.QDRANT_API_KEY or None)
         else:
+            logger.info("Qdrant: подключение к localhost %s:%s", config.QDRANT_HOST, config.QDRANT_PORT)
             _client = QdrantClient(host=config.QDRANT_HOST, port=config.QDRANT_PORT)
     return _client
 
