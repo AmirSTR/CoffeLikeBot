@@ -46,7 +46,8 @@ def search(query: str) -> list[dict]:
             limit=config.TOP_K,
             with_payload=True,
         )
-    except Exception:
+    except Exception as e:
+        print(f"[QDRANT ERROR] {type(e).__name__}: {e}")
         logger.exception("Ошибка при поиске в Qdrant (коллекция '%s')", config.QDRANT_COLLECTION)
         return []
 
@@ -60,6 +61,7 @@ def search(query: str) -> list[dict]:
             "score": round(hit.score, 4),
         })
 
+    print(f"[QDRANT OK] найдено {len(results)} результатов для: {query[:50]!r}")
     logger.debug("search('%s'): найдено %d результатов", query[:60], len(results))
     return results
 
