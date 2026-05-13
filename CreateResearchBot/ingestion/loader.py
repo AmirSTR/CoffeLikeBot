@@ -18,6 +18,8 @@ UPSERT_BATCH_SIZE = 100
 
 
 def _get_client() -> QdrantClient:
+    if config.QDRANT_URL:
+        return QdrantClient(url=config.QDRANT_URL, api_key=config.QDRANT_API_KEY or None)
     return QdrantClient(host=config.QDRANT_HOST, port=config.QDRANT_PORT)
 
 

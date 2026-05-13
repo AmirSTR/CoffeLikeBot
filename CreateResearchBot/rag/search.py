@@ -14,7 +14,10 @@ _client: QdrantClient | None = None
 def _get_client() -> QdrantClient:
     global _client
     if _client is None:
-        _client = QdrantClient(host=config.QDRANT_HOST, port=config.QDRANT_PORT)
+        if config.QDRANT_URL:
+            _client = QdrantClient(url=config.QDRANT_URL, api_key=config.QDRANT_API_KEY or None)
+        else:
+            _client = QdrantClient(host=config.QDRANT_HOST, port=config.QDRANT_PORT)
     return _client
 
 

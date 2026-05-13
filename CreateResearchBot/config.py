@@ -46,6 +46,10 @@ except ValueError:
 BOT_NAME: str = os.getenv("BOT_NAME", "Бариста")
 
 # --- Qdrant ---
+# Для Qdrant Cloud задай QDRANT_URL и QDRANT_API_KEY.
+# Для локального Qdrant задай QDRANT_HOST / QDRANT_PORT (или оставь по умолчанию).
+QDRANT_URL: str = os.getenv("QDRANT_URL", "")          # https://xxx.qdrant.io:6333
+QDRANT_API_KEY: str = os.getenv("QDRANT_API_KEY", "")
 QDRANT_HOST: str = os.getenv("QDRANT_HOST", "localhost")
 QDRANT_PORT: int = _optional_int("QDRANT_PORT", 6333)
 QDRANT_COLLECTION: str = os.getenv("QDRANT_COLLECTION", "knowledge_base")
