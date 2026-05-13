@@ -1,0 +1,131 @@
+2026-05-12 19:08:36,179 [INFO] __main__: Запуск бота 'БаристаБот' | Python 3.11.8 | group_id=238628014
+2026-05-12 19:08:38,160 [INFO] __main__: Bot Long Poll запущен, ожидание событий
+2026-05-12 19:08:58,867 [INFO] bot.vk_handler: Запрос от peer_id=869822103 from_id=869822103
+2026-05-12 19:09:08,690 [INFO] sentence_transformers.SentenceTransformer: Use pytorch device_name: cpu
+2026-05-12 19:09:08,690 [INFO] sentence_transformers.SentenceTransformer: Load pretrained SentenceTransformer: intfloat/multilingual-e5-small
+2026-05-12 19:09:19,448 [INFO] httpx: HTTP Request: POST http://localhost:6333/collections/knowledge_base/points/query "HTTP/1.1 200 OK"
+2026-05-12 19:09:19,818 [INFO] httpx: HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2026-05-12 19:09:21,142 [INFO] httpx: HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-12 19:11:57,950 [ERROR] __main__: Критическая ошибка в Long Poll loop
+Traceback (most recent call last):
+  File "C:\Users\Склад\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Склад\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Склад\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Склад\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 1390, in getresponse
+    response.begin()
+  File "C:\Users\Склад\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 325, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Склад\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 294, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Склад\AppData\Local\Programs\Python\Python311\Lib\site-packages\requests\adapters.py", line 645, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\Склад\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Склад\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\util\retry.py", line 490, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Склад\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\util\util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Склад\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Склад\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Склад\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Склад\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 1390, in getresponse
+    response.begin()
+  File "C:\Users\Склад\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 325, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Склад\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 294, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Склад\Desktop\CreateResearchBot\main.py", line 46, in main
+    for event in longpoll.listen():
+  File "C:\Users\Склад\AppData\Local\Programs\Python\Python311\Lib\site-packages\vk_api\bot_longpoll.py", line 286, in listen
+    yield from self.check()
+               ^^^^^^^^^^^^
+  File "C:\Users\Склад\AppData\Local\Programs\Python\Python311\Lib\site-packages\vk_api\bot_longpoll.py", line 255, in check
+    response = self.session.get(
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Склад\AppData\Local\Programs\Python\Python311\Lib\site-packages\requests\sessions.py", line 605, in get
+    return self.request("GET", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Склад\AppData\Local\Programs\Python\Python311\Lib\site-packages\requests\sessions.py", line 592, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Склад\AppData\Local\Programs\Python\Python311\Lib\site-packages\requests\sessions.py", line 706, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Склад\AppData\Local\Programs\Python\Python311\Lib\site-packages\requests\adapters.py", line 660, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2026-05-12 19:14:15,790 [INFO] __main__: Запуск бота 'БаристаБот' | Python 3.11.8 | group_id=238628014
+2026-05-12 19:14:16,502 [INFO] __main__: Bot Long Poll запущен, ожидание событий
+2026-05-12 19:14:22,020 [INFO] bot.vk_handler: Запрос от peer_id=2000000002 from_id=869822103
+2026-05-12 19:14:32,174 [INFO] sentence_transformers.SentenceTransformer: Use pytorch device_name: cpu
+2026-05-12 19:14:32,174 [INFO] sentence_transformers.SentenceTransformer: Load pretrained SentenceTransformer: intfloat/multilingual-e5-small
+2026-05-12 19:14:40,901 [INFO] httpx: HTTP Request: POST http://localhost:6333/collections/knowledge_base/points/query "HTTP/1.1 200 OK"
+2026-05-12 19:14:41,531 [INFO] httpx: HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2026-05-12 19:14:42,195 [INFO] httpx: HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 403 Forbidden"
+2026-05-12 19:14:42,195 [ERROR] rag.generator: Ошибка groq API при генерации ответа
+Traceback (most recent call last):
+  File "C:\Users\Склад\Desktop\CreateResearchBot\rag\generator.py", line 58, in generate
+    response = _get_client().chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Склад\AppData\Local\Programs\Python\Python311\Lib\site-packages\groq\resources\chat\completions.py", line 368, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Users\Склад\AppData\Local\Programs\Python\Python311\Lib\site-packages\groq\_base_client.py", line 1225, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Склад\AppData\Local\Programs\Python\Python311\Lib\site-packages\groq\_base_client.py", line 1034, in request
+    raise self._make_status_error_from_response(err.response) from None
+groq.PermissionDeniedError: Error code: 403 - {'error': {'message': 'Forbidden'}}
+2026-05-12 19:14:50,678 [INFO] bot.vk_handler: Запрос от peer_id=2000000002 from_id=869822103
+2026-05-12 19:14:50,755 [INFO] httpx: HTTP Request: POST http://localhost:6333/collections/knowledge_base/points/query "HTTP/1.1 200 OK"
+2026-05-12 19:14:50,871 [INFO] httpx: HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 403 Forbidden"
+2026-05-12 19:14:50,871 [ERROR] rag.generator: Ошибка groq API при генерации ответа
+Traceback (most recent call last):
+  File "C:\Users\Склад\Desktop\CreateResearchBot\rag\generator.py", line 58, in generate
+    response = _get_client().chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Склад\AppData\Local\Programs\Python\Python311\Lib\site-packages\groq\resources\chat\completions.py", line 368, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Users\Склад\AppData\Local\Programs\Python\Python311\Lib\site-packages\groq\_base_client.py", line 1225, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Склад\AppData\Local\Programs\Python\Python311\Lib\site-packages\groq\_base_client.py", line 1034, in request
+    raise self._make_status_error_from_response(err.response) from None
+groq.PermissionDeniedError: Error code: 403 - {'error': {'message': 'Forbidden'}}
+2026-05-12 19:15:12,931 [INFO] __main__: Бот остановлен пользователем (KeyboardInterrupt)
+2026-05-12 19:15:24,393 [INFO] __main__: Запуск бота 'БаристаБот' | Python 3.11.8 | group_id=238628014
+2026-05-12 19:15:26,512 [INFO] __main__: Bot Long Poll запущен, ожидание событий
+2026-05-12 19:15:48,738 [INFO] bot.vk_handler: Запрос от peer_id=2000000002 from_id=869822103
+2026-05-12 19:15:56,668 [INFO] sentence_transformers.SentenceTransformer: Use pytorch device_name: cpu
+2026-05-12 19:15:56,668 [INFO] sentence_transformers.SentenceTransformer: Load pretrained SentenceTransformer: intfloat/multilingual-e5-small
+2026-05-12 19:16:08,963 [INFO] httpx: HTTP Request: POST http://localhost:6333/collections/knowledge_base/points/query "HTTP/1.1 200 OK"
+2026-05-12 19:16:09,582 [INFO] httpx: HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2026-05-12 19:16:12,168 [INFO] httpx: HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
