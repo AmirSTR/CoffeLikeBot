@@ -33,6 +33,8 @@ def main() -> None:
         config.BOT_NAME, py_version, config.VK_GROUP_ID,
     )
     print(f"[{config.BOT_NAME}] Запуск... Python {py_version}, group_id={config.VK_GROUP_ID}")
+    qdrant_target = config.QDRANT_URL if config.QDRANT_URL else f"{config.QDRANT_HOST}:{config.QDRANT_PORT}"
+    print(f"[{config.BOT_NAME}] Qdrant: {qdrant_target} | collection={config.QDRANT_COLLECTION}")
 
     try:
         session, vk = _build_session()
